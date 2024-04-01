@@ -50,35 +50,33 @@ class LinkedList:
     def remove(self, value):
         current_node = self.head
 
-        # Verifica se o valor a ser removido é o primeiro da lista
-        if current_node is not None and current_node.data == value:
-            self.head = current_node.next
-            return
-
-        # Busca o nó anterior ao nó a ser removido
-        while current_node is not None:
-            if current_node.next and current_node.next.data == value:
-                break
-            current_node = current_node.next
-
-        # Remove o nó com o valor especificado, se encontrado
-        if current_node is None or current_node.next is None:
-            return
-        current_node.next = current_node.next.next
+        if current_node is None:
+            pass  # A lista está vazia
+        else:
+            if current_node.data == value:
+                self.head = current_node.next
+            else:
+            # Busca o nó anterior ao nó a ser removido
+                while current_node.next is not None:
+                    if current_node.next.data == value:
+                        # Remove o nó com o valor especificado
+                        current_node.next = current_node.next.next
+                        break  # Encerra o loop após a remoção do nó
+                    current_node = current_node.next
 
 # Exemplo de uso
-if __name__ == "__main__":
-    linked_list = LinkedList()
-    linked_list.append(53)
-    linked_list.append(2)
-    linked_list.append(3)
-    linked_list.append(9)
-    linked_list.append(4)
 
-    linked_list.print_list()  # Saída: 53 2 3 9 4
+linked_list = LinkedList()
+linked_list.append(53)
+linked_list.append(2)
+linked_list.append(3)
+linked_list.append(9)
+linked_list.append(4)
 
-    linked_list.remove(3)
-    linked_list.print_list()  # Saída: 53 2 9 4
+linked_list.print_list()  # Saída: 53 2 3 9 4
 
-    linked_list.remove(53)  
-    linked_list.print_list()  # Saída:  2 9 4
+linked_list.remove(3)
+linked_list.print_list()  # Saída: 53 2 9 4
+
+linked_list.remove(53)  
+linked_list.print_list()  # Saída:  2 9 4

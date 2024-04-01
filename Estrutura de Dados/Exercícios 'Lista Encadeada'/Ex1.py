@@ -32,11 +32,11 @@ class LinkedList:
             current_node = current_node.next
         return False
 
-if __name__ == "__main__":
-    linked_list = LinkedList()
-    linked_list.append(1)
-    linked_list.append(2)
-    linked_list.append(3)
+
+linked_list = LinkedList()
+linked_list.append(1)
+linked_list.append(2)
+linked_list.append(3)
     
-    print(linked_list.search(2))
+print(linked_list.search(2))
     

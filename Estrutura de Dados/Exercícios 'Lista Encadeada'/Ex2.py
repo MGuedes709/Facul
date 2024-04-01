@@ -40,7 +40,7 @@ class LinkedList:
             return
         
         current_node = self.head
-        for _ in range(position - 1):
+        for i in range(position - 1):
             if current_node is None:
                 raise IndexError("Index out of range")
             current_node = current_node.next
@@ -48,14 +48,14 @@ class LinkedList:
         current_node.next = new_node
 
 
-if __name__ == "__main__":
-    linked_list = LinkedList()
-    linked_list.append(1)
-    linked_list.append(2)
-    linked_list.append(3)
 
-    linked_list.insert(0, 57)  # Inserindo 57 na posição 0
-    linked_list.print_list()  # Saída: 57 1 2 3
+linked_list = LinkedList()
+linked_list.append(1)
+linked_list.append(2)
+linked_list.append(3)
 
-    linked_list.insert(2, 8)  # Inserindo 4 na posição 2
-    linked_list.print_list()  # Saída: 57 1 8 2 3
+linked_list.insert(0, 57)  # Inserindo 57 na posição 0
+linked_list.print_list()  # Saída: 57 1 2 3
+
+linked_list.insert(2, 8)  # Inserindo 4 na posição 2
+linked_list.print_list()  # Saída: 57 1 8 2 3
