@@ -57,30 +57,29 @@ class Stack:
                 print(current.data)
                 current = current.next
     
-def decimal_para_binario(num_decimal, stack):
-    if num_decimal < 0:
-        # Verifica se o número é negativo e retorna um erro
-        print("Erro: Número negativo.")
-        return None
-    else:
-        if num_decimal == 0:
-            stack.push(0)
+    def decimal_para_binario(num_decimal):
+        stack = Stack()  # Cria uma instância da pilha
+        if num_decimal < 0:
+            # Verifica se o número é negativo e retorna um erro
+            print("Erro: Número negativo.")
+            return None
+        else:
+            if num_decimal == 0:
+                stack.push(0)
 
-        while num_decimal > 0:
-            # Converte o número decimal para binário e armazena na pilha
-            resto = num_decimal % 2
-            stack.push(resto)
-            num_decimal //= 2
+            while num_decimal > 0:
+                # Converte o número decimal para binário e armazena na pilha
+                resto = num_decimal % 2
+                stack.push(resto)
+                num_decimal //= 2
 
-        num_binario = ""
-        while not stack.is_empty():
-            # Monta o número binário a partir dos valores na pilha
-            num_binario += str(stack.pop())
+            num_binario = ""
+            while not stack.is_empty():
+                # Monta o número binário a partir dos valores na pilha
+                num_binario += str(stack.pop())
 
-        return num_binario
-
-stack = Stack()
+            return num_binario
 
 numero_decimal = 25
-numero_binario = decimal_para_binario(numero_decimal, stack)
+numero_binario = decimal_para_binario(numero_decimal)
 print(f"O número binário equivalente de {numero_decimal} é: {numero_binario}")
