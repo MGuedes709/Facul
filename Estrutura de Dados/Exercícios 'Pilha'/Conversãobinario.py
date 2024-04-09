@@ -5,6 +5,7 @@ class Node:
         # Inicializa o ponteiro para o próximo nó como None
         self.next = None
 
+
 class Stack:
     def __init__(self):
         # Inicializa a pilha com o topo como None e o tamanho como 0
@@ -56,9 +57,8 @@ class Stack:
             while current is not None:
                 print(current.data)
                 current = current.next
-    
-    def decimal_para_binario(num_decimal):
-        stack = Stack()  # Cria uma instância da pilha
+
+    def decimal_para_binario(self, num_decimal):
         if num_decimal < 0:
             # Verifica se o número é negativo e retorna um erro
             print("Erro: Número negativo.")
@@ -80,6 +80,9 @@ class Stack:
 
             return num_binario
 
+
+# Criando uma instância da classe Stack
+stack = Stack()
 numero_decimal = 25
-numero_binario = decimal_para_binario(numero_decimal)
+numero_binario = stack.decimal_para_binario(numero_decimal)
 print(f"O número binário equivalente de {numero_decimal} é: {numero_binario}")
